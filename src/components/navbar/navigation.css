@@ -1,0 +1,14 @@
+.nav-link{
+    padding: 32px 16px 32px 16px!important;
+}
+
+.nav-link.active {
+    color: var(--green)!important;
+    border-bottom: 2px solid var(--green);
+} 
+
+.image-logo svg{
+    width: 30px;
+    fill: var(--green);
+    margin-right: 32px!important;
+}
