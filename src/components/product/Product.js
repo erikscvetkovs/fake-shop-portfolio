@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import './product.css'
 import { useDispatch } from 'react-redux'
 import { addOrder } from '../../features/order/orderSlice'
+import { Link } from 'react-router-dom'
 
 export default function product(props) {
     const product = props.product
@@ -19,13 +20,13 @@ export default function product(props) {
                             </svg>
                         </div>
                     </div>
-                    <Col className='item-cover-image'>
+                    <Col className='item-cover-image' as={Link} to={`/item/${product.id}`}>
                         <div className='card-image' style={{ backgroundImage: `url("${product.image}")` }}></div>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Row className='product-name'>
+                        <Row className='product-name' as={Link} to={`/item/${product.id}`}>
                             <Col title={`${product.title}`}>{product.title}</Col>
                         </Row>
                         <Row className='product-price'>

@@ -47,7 +47,7 @@ export default function products() {
                         <Row className='heading-category'>
                             <Col>{currentCategory.toUpperCase()}</Col>
                         </Row>
-                        <Row className="justify-content-center">
+                        <Row>
                             {
                                 Object.values(products).map((product) => {
                                     return (

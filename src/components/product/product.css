@@ -76,3 +76,12 @@
     justify-content: center;
     align-items: center;
 }
+
+a{
+    text-decoration: none!important;
+    color: black !important;;
+}
+
+a:hover{
+    color: black!important;;
+}

@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/navbar/Navigation';
 import Products from './components/products/Products'
 import Cart from './components/cart/Cart';
+import ProductDetailed from './components/product-detailed/ProductDetailed'
 import { useSelector } from 'react-redux'
 
 
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Products/>}/>
         <Route path="/category/:category" element={<Products/>}/>
+        <Route path="item/:id" element={<ProductDetailed/>}/>
       </Routes>
     </BrowserRouter>
   )
