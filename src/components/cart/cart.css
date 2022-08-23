@@ -128,3 +128,25 @@
     top: 30px;
     cursor: pointer;
 }
+
+.cart-heading.empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0!important;
+}
+
+.cart-total-sum{
+    margin-top: 40px!important;
+    display: flex;
+}
+
+.cart-total-sum span{
+    font-size: 16px;
+    font-family: 'Raleway-medium';
+    font-weight: 500;
+}
+
+.cart-total-sum .total-sum{
+    margin-left: 20px;
+}

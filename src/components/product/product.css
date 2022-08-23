@@ -69,12 +69,6 @@
 
 .cart-button .cart-icon{
     width: 25px;
-    transition-duration: 0.2s;
-}
-
-.cart-button:hover .cart-icon{
-    transform: scale(1.2);
-    transition-duration: 0.2s;
 }
 
 .product-card:hover .cart-button{
