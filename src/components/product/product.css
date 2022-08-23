@@ -10,13 +10,29 @@
     box-shadow: 0px 4px 35px 0px #A8ACB030;
 }
 
+.product-card:hover .card-image{
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}
+
 .item-cover-image {
+    overflow: hidden;
     height: 330px;
+    margin: 8px 8px 0 8px;
+    position: relative;
+}
+
+.card-image{
+    width: 100%;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 8px 8px 0 8px;
-    position: relative;
+    transition-duration: 0.2s;
+}
+
+.card-top{
+    position:relative;
 }
 
 .product-name {
@@ -38,7 +54,8 @@
 }
 
 .cart-button{
-    width: 50px;
+    z-index: 3;
+    width: 50px!important;
     height: 50px;
     border-radius: 50%;
     background-color: var(--green);
@@ -56,7 +73,7 @@
 }
 
 .cart-button:hover .cart-icon{
-    width: 30px;
+    transform: scale(1.2);
     transition-duration: 0.2s;
 }
 

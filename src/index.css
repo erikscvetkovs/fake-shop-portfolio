@@ -1,5 +1,6 @@
 :root {
   --green: #5ECE7B;
+  --white: #fff;
 }
 
 @font-face {
@@ -22,4 +23,8 @@
   padding: 0;
   font-family: 'Raleway';
   font-style: normal;
+}
+
+#root{
+  position: relative;
 }
