@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeCartState } from '../../features/cart/cartSlicer'
+import { updateItem } from '../../features/order/orderSlice'
 
 export default function Cart() {
     const [fadeOut, changeFadestatuss] = useState(true)
@@ -11,6 +12,10 @@ export default function Cart() {
     const dispatch = useDispatch();
     const cartBox = useRef(null);
     outsideCartBox(cartBox);
+
+    useEffect(() => {
+        localStorage.setItem('orders', JSON.stringify(orders))
+    }, [orders])
 
     function outsideCartBox(ref) {
         useEffect(() => {
@@ -58,7 +63,6 @@ export default function Cart() {
                             </Row>
                             <div className='orders-box'>
                                 {orders.items.map((order) => {
-                                    console.log(order)
                                     return (
                                         <Row key={order.id} className='order-row'>
                                             <Col className='cart-order-image' sm={4}>
@@ -73,6 +77,12 @@ export default function Cart() {
                                                 </Row>
                                                 <Row>
                                                     <Col className='cart-order-quantity'>Quantity: {order.quantity}</Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col className='cart-quantity-buttons'>
+                                                        <button onClick={()=>{dispatch(updateItem([order,'add']))}}>+</button>
+                                                        <button onClick={()=>{dispatch(updateItem([order,'remove']))}}>-</button>
+                                                    </Col>
                                                 </Row>
                                             </Col>
                                         </Row>

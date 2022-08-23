@@ -18,9 +18,9 @@ function getQuantity (items) {
 function getTotalSum (items) {
     let sum = 0
     items.forEach((item) => {
-        sum += item.price
+        sum += item.price * item.quantity
     })
-    return sum
+    return parseFloat(sum).toFixed(2)
 }
 
 function isInArray(item, orders) {
@@ -37,6 +37,11 @@ function isInArray(item, orders) {
     return [isFound, indexInArray]
 }
 
+function updateState(state){
+    state.quantity = getQuantity(state.items)
+    state.totalSum = getTotalSum(state.items)
+}
+
 export const orderSlice = createSlice({
     name: 'orders',
     initialState,
@@ -49,12 +54,31 @@ export const orderSlice = createSlice({
             } else {
                 state.items[isInArray(action.payload, state.items)[1]].quantity++
             }
-            state.quantity = getQuantity(state.items)
-            state.totalSum = getTotalSum(state.items)
+            updateState(state)
+        },
+        updateItem: (state,action) => {
+            const order = action.payload[0]
+            const act = action.payload[1]
+            const item = state.items.find((item) => item.id === order.id)
+            switch (act){
+                case 'remove':
+                    item.quantity --
+                    if (item.quantity === 0) {
+                        var index = state.items.indexOf(item);
+                        state.items.splice(index,1)
+                    }
+                    break;
+                case 'add':
+                    item.quantity ++
+                    break;
+                default:
+                    console.log('No such action')
+            }
+            updateState(state)
         }
     }
 })
 
-export const { addOrder } = orderSlice.actions
+export const { addOrder, updateItem } = orderSlice.actions
 
 export default orderSlice.reducer

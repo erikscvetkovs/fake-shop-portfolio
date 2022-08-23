@@ -2,12 +2,11 @@ import React from 'react'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './product.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addOrder } from '../../features/order/orderSlice'
 
 export default function product(props) {
     const product = props.product
-    const currentCategory = useSelector((state) => state.category.value)
     const dispatch = useDispatch();
     return (
         <Col lg={4} sm={6} className="p-0">
