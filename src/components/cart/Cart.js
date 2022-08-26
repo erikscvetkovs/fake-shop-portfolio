@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeCartState } from '../../features/cart/cartSlicer'
 import { updateItem } from '../../features/order/orderSlice'
+import { Link } from 'react-router-dom'
+
 
 export default function Cart() {
     const [fadeOut, changeFadestatuss] = useState(true)
@@ -96,7 +98,7 @@ export default function Cart() {
                                 </Col>
                             </Row>
                             <Row className='cart-buttons'>
-                                <Col>
+                                <Col as={Link} to={`overview/cart-overview`}  onClick={() => { fadeOutCart() }}>
                                     <div className='btn-cart btn-view-bag'>
                                         View bag
                                     </div>

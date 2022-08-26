@@ -1,5 +1,5 @@
 import storage from 'redux-persist/lib/storage';
-import { 
+import {
   persistStore,
   persistReducer,
   FLUSH,
@@ -15,19 +15,21 @@ import orderReducer from '../features/order/orderSlice';
 import apiReducer from '../features/api/apiSlicer'
 import categoryReducer from '../features/category/categorySlice';
 import cartReducer from '../features/cart/cartSlicer';
+import stepsReducer from '../features/steps/stepsSlice'
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist : ['cart']
+  blacklist: ['cart', 'category', 'steps']
 }
 
 const rootReducer = combineReducers({
-    counter: counterReducer,
-    orders: orderReducer,
-    api: apiReducer,
-    category: categoryReducer,
-    cart: cartReducer
+  steps: stepsReducer,
+  counter: counterReducer,
+  orders: orderReducer,
+  api: apiReducer,
+  category: categoryReducer,
+  cart: cartReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

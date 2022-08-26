@@ -1,0 +1,56 @@
+.step {
+    display: flex;
+    align-items: center;
+}
+
+.progress-line-box {
+    height: 3px;
+    background-color: grey;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+.progress-line{
+    width: 100%;
+    height: 100%;
+    background-color: var(--green);
+    display: none;
+}
+
+.step-name{
+    position: relative;
+}
+
+.step-index{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: grey;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.step-title{
+    position: absolute;
+    transform: translate(-50%, 20%);
+    left: 50%;
+    text-align: center;
+}
+
+.step.active .step-index{
+    animation: active 1s;
+    animation-fill-mode: forwards; 
+}
+
+.step.active .progress-line{
+    display: block;
+}
+
+@keyframes active {
+    100% {
+        background-color: var(--green);
+    }
+}

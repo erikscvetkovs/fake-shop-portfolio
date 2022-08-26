@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { addOrder } from '../../features/order/orderSlice'
 import ProductDetailedLoading from './ProductDetailedLoading';
+import { motion } from 'framer-motion/dist/framer-motion'
 
 
 export default function ProductDetailed() {
@@ -83,7 +84,7 @@ export default function ProductDetailed() {
             ) : null}
             <Row>
               <Col sm={5} className='space-top-30'>
-                <button className='product-detailed-add-to-cart' onClick={() => { dispatch(addOrder(product)) }}>ADD TO CART</button>
+                <motion.button whileTap={{ scale: 0.9 }} className='product-detailed-add-to-cart' onClick={() => { dispatch(addOrder(product)) }}>ADD TO CART</motion.button>
               </Col>
             </Row>
           </Col>

@@ -75,6 +75,14 @@
     background-color: var(--green);
     color: var(--white);
     border: none;
+    border: 1px solid var(--green);
+    transition-duration: 0.2s;
+}
+
+.product-detailed-add-to-cart:hover{
+    background-color: transparent;
+    color: var(--green);
+    transition-duration: 0.2s;
 }
 
 .loading{

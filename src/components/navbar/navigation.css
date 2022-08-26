@@ -35,7 +35,7 @@
 }
 
 .new-order{
-    animation: newOrder 1s infinite;
+    animation: newOrder 1s;
 }
 
 @keyframes newOrder {
