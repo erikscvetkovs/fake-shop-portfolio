@@ -98,7 +98,7 @@ export default function Cart() {
                                 </Col>
                             </Row>
                             <Row className='cart-buttons'>
-                                <Col as={Link} to={`overview/cart-overview`}  onClick={() => { fadeOutCart() }}>
+                                <Col as={Link} to={`overview/bag-overview`}  onClick={() => { fadeOutCart() }}>
                                     <div className='btn-cart btn-view-bag'>
                                         View bag
                                     </div>

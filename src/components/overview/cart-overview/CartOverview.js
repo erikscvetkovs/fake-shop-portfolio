@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import './cart-overview.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from '../../../features/order/orderSlice'
+import { Link } from 'react-router-dom'
 
 
 export default function CartOverview() {
@@ -49,8 +50,8 @@ export default function CartOverview() {
                 )
             })}
             <Row className='order-btn'>
-                <Col sm={3}>
-                    <button>Order</button>
+                <Col sm={3} as={Link} to='/overview/checkout'>
+                    <button>Checkout</button>
                 </Col>
             </Row>
         </Container>

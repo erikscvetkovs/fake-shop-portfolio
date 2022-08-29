@@ -1,20 +1,37 @@
+.progress-bar-box{
+    margin-block: 40px;
+    height: 100%;
+}
+
 .step {
     display: flex;
     align-items: center;
+    flex: 1 0;
+    padding-right: 0!important;
+}
+
+.step:not(:first-child){
+    margin-left: 20px;
+    padding-left: 0;
 }
 
 .progress-line-box {
     height: 3px;
     background-color: grey;
     border-radius: 15px;
-    margin-right: 5px;
 }
+
+.progress-line-box:not(:last-child){
+    margin-right: 20px;
+}
+
 
 .progress-line{
     width: 100%;
     height: 100%;
     background-color: var(--green);
     display: none;
+    border-radius: 15px;
 }
 
 .step-name{

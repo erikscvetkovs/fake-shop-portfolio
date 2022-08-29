@@ -9,19 +9,20 @@ import { motion } from 'framer-motion/dist/framer-motion'
 export default function ProgressBar(props) {
   const steps = useSelector((state) => state.steps.steps)
   const currentStep = props.step
+  const currentStepIndex = steps.findIndex((step) => step.name=== currentStep)
   return (
-    <Container>
+    <Container className='progress-bar-box'>
       <Row>
         {steps.map((step, index) => {
           if (index === steps.length - 1) return (
-            <Col key={step.name} className={`step ${currentStep === step.name ? ('active') : null}`}>
+            <Col key={step.name} className={`step ${currentStepIndex >= index ? ('active') : null}`}>
               <Col className={`progress-line-box`}>
                 <div className='progress-line'></div>
               </Col>
             </Col>
           )
           return (
-            <Col key={step.name} className={`step ${currentStep === step.name ? ('active') : null}`}>
+            <div key={step.name} className={`step ${currentStepIndex >= index? ('active') : null}`}>
               <Col className={`progress-line-box`}>
                 <motion.div initial={{ width: 0 }}
                   animate={{ width: '100%' }}
@@ -29,12 +30,12 @@ export default function ProgressBar(props) {
                 </motion.div>
               </Col>
               <div className='step-name'>
-                <div className='step-index'>{index}</div>
+                <div className='step-index'>{index+1}</div>
                 <div className='step-title'>
                   {step.name.toUpperCase()}
                 </div>
               </div>
-            </Col>
+            </div>
           )
         })}
       </Row>

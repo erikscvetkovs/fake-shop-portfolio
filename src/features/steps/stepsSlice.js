@@ -3,11 +3,18 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     steps: [
         {
-            name: 'cart-overview',
+            name: 'bag-overview',
+        },
+        {
+            name: 'checkout',
+        },
+        {
+            name: 'shipping-details',
         },
         {
             name: 'final',
-        }
+        },
+        
     ]
 }
 
