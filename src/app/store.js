@@ -16,6 +16,7 @@ import apiReducer from '../features/api/apiSlicer'
 import categoryReducer from '../features/category/categorySlice';
 import cartReducer from '../features/cart/cartSlicer';
 import stepsReducer from '../features/steps/stepsSlice'
+import checkoutFormSlicer from '../features/checkout-form/checkoutFormSlicer';
 
 const persistConfig = {
   key: 'root',
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   api: apiReducer,
   category: categoryReducer,
   cart: cartReducer,
+  checkoutForm: checkoutFormSlicer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

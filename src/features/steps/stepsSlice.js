@@ -4,15 +4,19 @@ const initialState = {
     steps: [
         {
             name: 'bag-overview',
+            title: 'bag'
         },
         {
             name: 'checkout',
+            title: 'checkout'
         },
         {
-            name: 'shipping-details',
+            name: 'payment',
+            title: 'payment'
         },
         {
             name: 'final',
+            title: null
         },
         
     ]

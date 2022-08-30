@@ -75,7 +75,7 @@ export default function Cart() {
                                                     <Col className='cart-order-name'>{order.title}</Col>
                                                 </Row>
                                                 <Row>
-                                                    <Col className='cart-order-price'>{order.price} $</Col>
+                                                    <Col className='cart-order-price'>{order.price * order.quantity} $</Col>
                                                 </Row>
                                                 <Row>
                                                     <Col className='cart-order-quantity'>Quantity: {order.quantity}</Col>
@@ -103,7 +103,7 @@ export default function Cart() {
                                         View bag
                                     </div>
                                 </Col>
-                                <Col>
+                                <Col as={Link} to='/overview/checkout' onClick={() => { fadeOutCart() }}>
                                     <div className='btn-cart btn-checkout'>
                                         Checkout
                                     </div>

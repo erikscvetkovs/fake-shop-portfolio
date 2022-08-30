@@ -32,7 +32,7 @@ export default function ProgressBar(props) {
               <div className='step-name'>
                 <div className='step-index'>{index+1}</div>
                 <div className='step-title'>
-                  {step.name.toUpperCase()}
+                  {step.title.toUpperCase()}
                 </div>
               </div>
             </div>
