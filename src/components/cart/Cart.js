@@ -82,8 +82,8 @@ export default function Cart() {
                                                 </Row>
                                                 <Row>
                                                     <Col className='cart-quantity-buttons'>
-                                                        <button onClick={()=>{dispatch(updateItem([order,'add']))}}>+</button>
-                                                        <button onClick={()=>{dispatch(updateItem([order,'remove']))}}>-</button>
+                                                        <button onClick={() => { dispatch(updateItem([order, 'add'])) }}>+</button>
+                                                        <button onClick={() => { dispatch(updateItem([order, 'remove'])) }}>-</button>
                                                     </Col>
                                                 </Row>
                                             </Col>
@@ -98,12 +98,16 @@ export default function Cart() {
                                 </Col>
                             </Row>
                             <Row className='cart-buttons'>
-                                <Col as={Link} to={`overview/bag-overview`}  onClick={() => { fadeOutCart() }}>
+                                <Col as={Link} to={`overview/bag-overview`} onClick={() => {
+                                    fadeOutCart()
+                                }}>
                                     <div className='btn-cart btn-view-bag'>
                                         View bag
                                     </div>
                                 </Col>
-                                <Col as={Link} to='/overview/checkout' onClick={() => { fadeOutCart() }}>
+                                <Col as={Link} to='/overview/checkout' onClick={() => {
+                                    fadeOutCart()
+                                }}>
                                     <div className='btn-cart btn-checkout'>
                                         Checkout
                                     </div>
@@ -113,6 +117,6 @@ export default function Cart() {
                     )}
                 </Col>
             </div>
-        </div>
+        </div >
     )
 }

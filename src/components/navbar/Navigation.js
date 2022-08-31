@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
 import { getCurrentCategory } from '../../features/category/categorySlice'
+import { findError } from '../../features/error/errorSlice';
 import { Link } from 'react-router-dom'
 import './navigation.css'
 import Container from 'react-bootstrap/Container';
@@ -31,7 +32,10 @@ export default function Navigation() {
             .then(({ data }) => {
                 getCategory(data)
             })
-            .catch(err => console.dir(err))
+            .catch(err => {
+                console.dir(err)
+                dispatch(findError(true))
+            })
             .finally(() => {
                 setLoading(false)
             })

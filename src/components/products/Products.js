@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,12 +7,14 @@ import Col from 'react-bootstrap/Col';
 import './products.css'
 import Product from '../product/Product';
 import ProductsLoading from './ProductsLoading';
+import { findError } from '../../features/error/errorSlice';
 
 export default function products() {
     const currentCategory = useSelector((state) => state.category.value)
     const [loading, setLoading] = useState(false)
     const [products, getProducts] = useState('')
     const api = useSelector((state) => state.api.url)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         getAllProducts()
@@ -31,7 +33,10 @@ export default function products() {
             .then(({ data }) => {
                 getProducts(data)
             })
-            .catch(err => console.dir(err))
+            .catch(err => {
+                console.dir(err)
+                dispatch(findError(true))
+            })
             .finally(() => {
                 setLoading(false)
             })

@@ -7,7 +7,7 @@ import './checkout.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateForm } from '../../../features/checkout-form/checkoutFormSlicer.js'
 import { useNavigate } from 'react-router-dom';
-
+import { updateStep } from '../../../features/steps/stepsSlice';
 
 export default function Checkout() {
     const initialValues = { name: '', surname: '', email: '', phoneNumber: '', city: '', zipCode: '', street: '' }
@@ -22,6 +22,7 @@ export default function Checkout() {
 
     useEffect(() => {
         if (form !== null) useActiveForm(true)
+        dispatch(updateStep('checkout'))
     }, [])
 
     const useCustomForm = (value) => {

@@ -16,12 +16,13 @@ import apiReducer from '../features/api/apiSlicer'
 import categoryReducer from '../features/category/categorySlice';
 import cartReducer from '../features/cart/cartSlicer';
 import stepsReducer from '../features/steps/stepsSlice'
-import checkoutFormSlicer from '../features/checkout-form/checkoutFormSlicer';
+import checkoutFormReducer from '../features/checkout-form/checkoutFormSlicer';
+import errorReducer from '../features/error/errorSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['cart', 'category', 'steps']
+  blacklist: ['cart', 'category', 'steps', 'error', 'api']
 }
 
 const rootReducer = combineReducers({
@@ -31,7 +32,8 @@ const rootReducer = combineReducers({
   api: apiReducer,
   category: categoryReducer,
   cart: cartReducer,
-  checkoutForm: checkoutFormSlicer
+  checkoutForm: checkoutFormReducer,
+  error:errorReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

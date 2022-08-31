@@ -19,12 +19,20 @@ const initialState = {
             title: null
         },
         
-    ]
+    ],
+    currentStep: null
 }
 
 export const stepsSlice = createSlice({
     name: 'steps',
     initialState,
+    reducers: {
+        updateStep: (state,action) => { 
+            state.currentStep = action.payload
+        }
+    }
 })
+
+export const { updateStep } = stepsSlice.actions
 
 export default stepsSlice.reducer

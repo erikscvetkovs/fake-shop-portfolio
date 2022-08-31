@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,11 +6,15 @@ import './cart-overview.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from '../../../features/order/orderSlice'
 import { Link } from 'react-router-dom'
+import { updateStep } from '../../../features/steps/stepsSlice';
 
 
 export default function CartOverview() {
     const orders = useSelector((state) => state.orders)
     const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(updateStep('bag-overview'))
+    },[])
     return (
         <Container>
             <Row>
@@ -50,7 +54,7 @@ export default function CartOverview() {
                 )
             })}
             <Row className='order-btn'>
-                <Col sm={3} as={Link} to='/overview/checkout'>
+                <Col sm={3} as={Link} to='/overview/checkout' onClick={()=>dispatch(updateStep('checkout'))}>
                     <button>Checkout</button>
                 </Col>
             </Row>
