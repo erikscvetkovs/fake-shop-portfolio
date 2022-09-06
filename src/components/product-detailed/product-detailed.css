@@ -57,7 +57,7 @@
     --percent: calc(var(--rating) / 5 * 100%);
     display: inline-block;
     font-size: var(--star-size);
-    font-family: Times; 
+    font-family: Times;
     line-height: 1;
 }
 
@@ -69,7 +69,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.product-detailed-add-to-cart{
+.product-detailed-add-to-cart {
     width: 100%;
     padding: 16px 32px;
     background-color: var(--green);
@@ -77,15 +77,16 @@
     border: none;
     border: 1px solid var(--green);
     transition-duration: 0.2s;
+    margin-bottom: 40px!important;
 }
 
-.product-detailed-add-to-cart:hover{
+.product-detailed-add-to-cart:hover {
     background-color: transparent;
     color: var(--green);
     transition-duration: 0.2s;
 }
 
-.loading{
+.loading {
     background-color: #a8acb08a;
     margin: 8px 8px 0 8px;
     background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
@@ -93,27 +94,35 @@
     animation: 1.5s shine linear infinite;
 }
 
-.loading.header{
+.loading.header {
     width: 100%;
     height: 40px;
 }
 
-.loading.description{
+.loading.description {
     width: 100%;
     height: 124px;
 }
 
-.loading.section{
+.loading.section {
     width: 150px;
     height: 60px;
 }
 
-.loading.button{
+.loading.button {
     height: 56px;
 }
 
 @keyframes shine {
     to {
-      background-position-x: -200%;
+        background-position-x: -200%;
     }
-  }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .product-detailed-image {
+        height: 250px;
+        margin-bottom: 40px;
+    }
+}

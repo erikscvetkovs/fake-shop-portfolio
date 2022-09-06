@@ -45,7 +45,7 @@ export default function ProductDetailed() {
         <ProductDetailedLoading />
       ) : (
         <Row>
-          <Col className='product-detailed-image'>
+          <Col className='product-detailed-image' sm={12} md={4}>
             <div style={{ backgroundImage: `url("${product.image}")` }}></div>
           </Col>
           <Col>
@@ -83,7 +83,7 @@ export default function ProductDetailed() {
               </>
             ) : null}
             <Row>
-              <Col sm={5} className='space-top-30'>
+              <Col sm={8} md={5} className='space-top-30'>
                 <motion.button whileTap={{ scale: 0.9 }} className='product-detailed-add-to-cart' onClick={() => { dispatch(addOrder(product)) }}>ADD TO CART</motion.button>
               </Col>
             </Row>

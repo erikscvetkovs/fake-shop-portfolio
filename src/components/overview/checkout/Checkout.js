@@ -62,14 +62,14 @@ export default function Checkout() {
                 <Col className='checkout-heading'>Checkout</Col>
             </Row>
             <Row>
-                <Col className='form px-3' sm={6}>
+                <Col className='form px-3 order-2 order-md-1' md={6}>
                     <Row className='heading mb-4'>
                         <Col>Use this shipping address</Col>
                     </Row>
                     {activeForm ? (
                         <div className='mb-3'>
                             <Row className='mb-3'>
-                                <Col sm={4}>
+                                <Col sm={8} md={8} lg={6}>
                                     <button className='custom-form-btn' onClick={() => useCustomForm(false)}>Use custom form</button>
                                 </Col>
                             </Row>
@@ -200,7 +200,7 @@ export default function Checkout() {
                         </>
                     )}
                 </Col>
-                <Col className='ps-4 order-box'>
+                <Col className='ps-3 ps-md-4 order-1 order-md-2 order-box'>
                     <Row>
                         <Col className='heading'>Order Summary</Col>
                         <Col className='d-flex justify-content-end secondary'>
@@ -216,11 +216,11 @@ export default function Checkout() {
                         {orders.items.map((order) => {
                             return (
                                 <Row className='order' key={order.id}>
-                                    <Col sm={2}>
+                                    <Col xs={5} lg={2}>
                                         <div className='order-image' style={{ backgroundImage: `url("${order.image}")` }}></div>
                                     </Col>
-                                    <Col sm={8}>{order.title}</Col>
-                                    <Col sm={2} className='price'>{order.price * order.quantity} $</Col>
+                                    <Col xs={5} lg={8}>{order.title}</Col>
+                                    <Col xs={2} className='price'>{order.price * order.quantity} $</Col>
                                 </Row>
                             )
                         })}

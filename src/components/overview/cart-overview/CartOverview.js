@@ -23,7 +23,7 @@ export default function CartOverview() {
             {orders.items.map((order) => {
                 return (
                     <Row key={order.id} className='order-review-product'>
-                        <Col lg={8}>
+                        <Col md={6} lg={8}>
                             <Row>
                                 <Col className='heading'>
                                     {order.title}
@@ -40,7 +40,7 @@ export default function CartOverview() {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col lg={4}>
+                        <Col sm={12} md={6} lg={4} className='mt-24'>
                             <Row className='order-quantity-and-image'>
                                 <div className='order-quantity'>
                                     <button className='add' onClick={()=>{dispatch(updateItem([order,'add']))}}>+</button>
@@ -54,7 +54,7 @@ export default function CartOverview() {
                 )
             })}
             <Row className='order-btn'>
-                <Col sm={3} as={Link} to='/overview/checkout' onClick={()=>dispatch(updateStep('checkout'))}>
+                <Col sm={12} md={6} lg={3} as={Link} to='/overview/checkout' onClick={()=>dispatch(updateStep('checkout'))}>
                     <button>Checkout</button>
                 </Col>
             </Row>

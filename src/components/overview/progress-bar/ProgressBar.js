@@ -14,15 +14,35 @@ export default function ProgressBar(props) {
     <Container className='progress-bar-box'>
       <Row>
         {steps.map((step, index) => {
+          if (index === 0) return (
+            <>
+              <div key={step.name} className={`step ${currentStepIndex >= index ? ('active') : null}`}>
+                <Col className={`progress-line-box`}>
+                  <motion.div initial={{ width: 0 }}
+                    animate={{ width: '100%' }}
+                    transition={{ duration: 1 }} className='progress-line'>
+                  </motion.div>
+                </Col>
+              </div>
+              <div key={step.name} className={`step first ${currentStepIndex >= index ? ('active') : null}`}>
+                <div className='step-name'>
+                  <div className='step-index'>{index + 1}</div>
+                  <div className='step-title'>
+                    {step.title.toUpperCase()}
+                  </div>
+                </div>
+              </div>
+            </>
+          )
           if (index === steps.length - 1) return (
-            <Col key={step.name} className={`step ${currentStepIndex >= index ? ('active') : null}`}>
+            <div key={step.name} className={`step ${currentStepIndex >= index ? ('active') : null}`}>
               <Col className={`progress-line-box`}>
                 <motion.div initial={{ width: 0 }}
                   animate={{ width: '100%' }}
                   transition={{ duration: 1 }} className='progress-line'>
                 </motion.div>
               </Col>
-            </Col>
+            </div>
           )
           return (
             <div key={step.name} className={`step ${currentStepIndex >= index ? ('active') : null}`}>

@@ -66,6 +66,10 @@
     display: block;
 }
 
+.step.first{
+    flex: 0;
+}
+
 @keyframes active {
     100% {
         background-color: var(--green);
