@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { addOrder } from '../../features/order/orderSlice'
 import ProductDetailedLoading from './ProductDetailedLoading';
 import { motion } from 'framer-motion/dist/framer-motion'
+import setDYContext from '../../features/DY/dyContext';
 
 
 export default function ProductDetailed() {
@@ -21,6 +22,7 @@ export default function ProductDetailed() {
 
   useEffect(() => {
     getSingleProduct()
+    setDYContext('PRODUCT', [id.id])
   }, [])
 
   const getSingleProduct = () => {

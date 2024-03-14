@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateForm } from '../../../features/checkout-form/checkoutFormSlicer.js'
 import { useNavigate } from 'react-router-dom';
 import { updateStep } from '../../../features/steps/stepsSlice';
+import setDYContext from '../../../features/DY/dyContext.jsx';
 
 export default function Checkout() {
     const initialValues = { name: '', surname: '', email: '', phoneNumber: '', city: '', zipCode: '', street: '' }
@@ -19,10 +20,10 @@ export default function Checkout() {
     const dispatch = useDispatch()
     const form = useSelector((state) => state.checkoutForm.form)
     const navigate = useNavigate();
-
     useEffect(() => {
         if (form !== null) useActiveForm(true)
         dispatch(updateStep('checkout'))
+        setDYContext('OTHER', ['checkout'])
     }, [])
 
     const useCustomForm = (value) => {

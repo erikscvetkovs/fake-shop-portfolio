@@ -3,21 +3,44 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './payment.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateStep } from '../../../features/steps/stepsSlice';
+import setDYContext from '../../../features/DY/dyContext';
 
 export default function payment() {
+    const orders = useSelector((state) => state.orders)
+    console.log(orders)
     const [loader, setLoading] = useState(false)
     const dispatch = useDispatch()
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(updateStep('payment'))
-    },[])
+        setDYContext('OTHER', ['payment']);
+    }, [])
     useEffect(() => {
         setTimeout(() => {
             setLoading(true)
             dispatch(updateStep('final'))
         }, 3000)
     });
+    useEffect(() => {
+        if (loader) {
+            window.DY.API("event", {
+                name: "Purchase",
+                properties: {
+                    dyType: "purchase-v1",
+                    value: orders.totalSum,
+                    currency: "USD",
+                    cart: orders.items.map((item) => {
+                        return {
+                            productId: item.id,
+                            quantity: item.quantity,
+                            itemPrice: item.price
+                        }
+                    })
+                }
+            });
+        }
+    }, [loader])
     return (
         <Container>
             <Row className='payment-box justify-content-center align-items-center mt-5'>

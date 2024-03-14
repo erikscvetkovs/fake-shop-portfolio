@@ -7,22 +7,25 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from '../../../features/order/orderSlice'
 import { Link } from 'react-router-dom'
 import { updateStep } from '../../../features/steps/stepsSlice';
+import setDYContext from '../../../features/DY/dyContext';
 
 
 export default function CartOverview() {
     const orders = useSelector((state) => state.orders)
     const dispatch = useDispatch();
+    console.log('cart')
     useEffect(()=>{
         dispatch(updateStep('bag-overview'))
+        setDYContext('CART', orders.items.map(order => order.id.toString()));
     },[])
     return (
         <Container>
             <Row>
                 <Col className='cart-overview-heading'>Cart</Col>
             </Row>
-            {orders.items.map((order) => {
+            {orders.items.map((order, index) => {
                 return (
-                    <Row key={order.id} className='order-review-product'>
+                    <Row key={index} className='order-review-product'>
                         <Col md={6} lg={8}>
                             <Row>
                                 <Col className='heading'>

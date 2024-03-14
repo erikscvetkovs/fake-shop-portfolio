@@ -7,6 +7,7 @@ import ProductDetailed from './components/product-detailed/ProductDetailed'
 import Overview from './components/overview/Overview'
 import ErrorPage from './components/errorPage/ErrorPage.js';
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'

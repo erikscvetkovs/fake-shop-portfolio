@@ -8,6 +8,7 @@ import './products.css'
 import Product from '../product/Product';
 import ProductsLoading from './ProductsLoading';
 import { findError } from '../../features/error/errorSlice';
+import setDYContext from '../../features/DY/dyContext';
 
 export default function products() {
     const currentCategory = useSelector((state) => state.category.value)
@@ -15,8 +16,8 @@ export default function products() {
     const [products, getProducts] = useState('')
     const api = useSelector((state) => state.api.url)
     const dispatch = useDispatch()
-
     useEffect(() => {
+        setDYContext('CATEGORY', [currentCategory]);
         getAllProducts()
     }, [currentCategory])
 

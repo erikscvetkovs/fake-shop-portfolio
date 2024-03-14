@@ -64,9 +64,9 @@ export default function Cart() {
                                 </Col>
                             </Row>
                             <div className='orders-box'>
-                                {orders.items.map((order) => {
+                                {orders.items.map((order, index) => {
                                     return (
-                                        <Row key={order.id} className='order-row'>
+                                        <Row key={index} className='order-row'>
                                             <Col className='cart-order-image' sm={4}>
                                                 <div className='order-image' style={{ backgroundImage: `url("${order.image}")` }}></div>
                                             </Col>
