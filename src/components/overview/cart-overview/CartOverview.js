@@ -13,7 +13,6 @@ import setDYContext from '../../../features/DY/dyContext';
 export default function CartOverview() {
     const orders = useSelector((state) => state.orders)
     const dispatch = useDispatch();
-    console.log('cart')
     useEffect(()=>{
         dispatch(updateStep('bag-overview'))
         setDYContext('CART', orders.items.map(order => order.id.toString()));

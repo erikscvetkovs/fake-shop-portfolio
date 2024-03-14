@@ -9,7 +9,6 @@ import setDYContext from '../../../features/DY/dyContext';
 
 export default function payment() {
     const orders = useSelector((state) => state.orders)
-    console.log(orders)
     const [loader, setLoading] = useState(false)
     const dispatch = useDispatch()
     useEffect(() => {
