@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import './payment.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateStep } from '../../../features/steps/stepsSlice';
+import { emptyCart } from '../../../features/order/orderSlice';
 import setDYContext from '../../../features/DY/dyContext';
 
 export default function payment() {
@@ -38,6 +39,7 @@ export default function payment() {
                     })
                 }
             });
+            dispatch(emptyCart());
         }
     }, [loader])
     return (

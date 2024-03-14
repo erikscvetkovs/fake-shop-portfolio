@@ -65,7 +65,7 @@ export const orderSlice = createSlice({
                 }
             });
             updateState(state)
-        },
+        }, 
         updateItem: (state, action) => {
             const order = action.payload[0]
             const act = action.payload[1]
@@ -105,10 +105,15 @@ export const orderSlice = createSlice({
                     console.log('No such action')
             }
             updateState(state)
+        },
+        emptyCart: (state, _action) => {
+            state.items = [];
+            state.quantity = 0;
+            state.totalSum = 0;
         }
     }
 })
 
-export const { addOrder, updateItem } = orderSlice.actions
+export const { addOrder, updateItem, emptyCart } = orderSlice.actions
 
 export default orderSlice.reducer
