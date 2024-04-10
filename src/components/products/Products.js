@@ -17,7 +17,11 @@ export default function products() {
     const api = useSelector((state) => state.api.url)
     const dispatch = useDispatch()
     useEffect(() => {
-        setDYContext('CATEGORY', [currentCategory]);
+        if (currentCategory === 'about-us' || currentCategory === 'contact-us') {
+            setDYContext('OTHER', [currentCategory]);
+        } else {
+            setDYContext('CATEGORY', [currentCategory]);
+        }
         getAllProducts()
     }, [currentCategory])
 

@@ -1,10 +1,10 @@
 const setDYContext = (type, data) => {
     window.DY = window.DY || {};
-    // eslint-disable-next-line
+    /* eslint-disable no-undef */
     if (data !== undefined) {
-        window.DY.recommendationContext = { type: type, data: data };
+        DY.recommendationContext = { type: type, data: data };
     } else {
-        window.DY.recommendationContext = { type: type };
+        DY.recommendationContext = { type: type };
     }
 }
 

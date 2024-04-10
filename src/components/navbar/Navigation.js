@@ -62,6 +62,8 @@ export default function Navigation() {
                             ) : (
                                 <>
                                     <Nav.Link as={Link} className={currentCategory === 'all' ? 'active' : ''} to="/" onClick={() => changeCategory('all')}>All</Nav.Link>
+                                    <Nav.Link as={Link} className={currentCategory === 'about-us' ? 'active' : ''} to="/" onClick={() => changeCategory('about-us')}>About Us</Nav.Link>
+                                    <Nav.Link as={Link} className={currentCategory === 'contact-us' ? 'active' : ''} to="/" onClick={() => changeCategory('contact-us')}>Contact Us</Nav.Link>
                                     {
                                         Object.values(categories).map(category => {
                                             return (

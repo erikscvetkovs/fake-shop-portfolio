@@ -6,6 +6,8 @@ import Cart from './components/cart/Cart';
 import ProductDetailed from './components/product-detailed/ProductDetailed'
 import Overview from './components/overview/Overview'
 import ErrorPage from './components/errorPage/ErrorPage.js';
+import AboutUs from './components/about-us/AboutUs.js';
+import ContactUs from './components/contact-us/ContactUs.js';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
 
@@ -35,6 +37,8 @@ function App() {
             <Route path="/category/:category" element={<Products />} />
             <Route path="item/:id" element={<ProductDetailed />} />
             <Route path="overview/:step" element={<Overview />} />
+            <Route path="/about-us" element={<AboutUs/>} />
+            <Route path="/contact-us" element={<ContactUs/>} />
             <Route path="*" element={<ErrorPage/>} />
           </Routes>
         </BrowserRouter>
